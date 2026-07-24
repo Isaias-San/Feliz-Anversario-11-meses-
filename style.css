@@ -1,0 +1,366 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #FFF8F6; /* Fondo Crema Rosado Suave */
+    background-image: radial-gradient(#F3E1DB 1px, transparent 1px);
+    background-size: 24px 24px;
+    color: #4A3E3D; /* Marrón Cálido y Elegante */
+    overflow-x: hidden;
+    padding-bottom: 90px;
+}
+
+/* Corazones Flotantes Animados */
+.hearts-background {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.floating-heart {
+    position: absolute;
+    bottom: -20px;
+    color: rgba(226, 149, 120, 0.35);
+    font-size: 1.2rem;
+    animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(-105vh) rotate(360deg); opacity: 0; }
+}
+
+/* Reproductor Flotante de Música */
+.music-player {
+    position: fixed;
+    bottom: 20px; left: 50%;
+    transform: translateX(-50%);
+    width: 90%; max-width: 380px;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(226, 149, 120, 0.4);
+    border-radius: 40px;
+    padding: 10px 20px;
+    display: flex; align-items: center; gap: 15px;
+    z-index: 100;
+    box-shadow: 0 10px 30px rgba(74, 62, 61, 0.08);
+}
+
+.play-btn {
+    background: linear-gradient(135deg, #E29578, #FFDDD2);
+    color: #FFFFFF; border: none;
+    width: 38px; height: 38px; border-radius: 50%;
+    font-weight: bold; cursor: pointer;
+    display: flex; justify-content: center; align-items: center;
+    box-shadow: 0 4px 10px rgba(226, 149, 120, 0.3);
+}
+
+.song-info { text-align: left; }
+.song-title { font-size: 0.85rem; font-weight: 700; color: #4A3E3D; display: block; }
+.song-sub { font-size: 0.75rem; color: #E29578; font-weight: 600; }
+
+/* Pantalla de Inicio Romántica */
+.intro-screen {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100vh;
+    background: #FFF0ED;
+    display: flex; justify-content: center; align-items: center;
+    z-index: 999; padding: 20px;
+}
+
+.card-intro {
+    background: #FFFFFF;
+    border: 2px solid #E29578;
+    border-radius: 24px;
+    padding: 40px 25px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(226, 149, 120, 0.15);
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.card-intro:hover { transform: scale(1.03); }
+.badge-vip { font-size: 0.75rem; letter-spacing: 2px; color: #E29578; font-weight: bold; }
+.card-intro h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; color: #4A3E3D; margin: 15px 0 5px; }
+.intro-sub { font-size: 0.85rem; color: #8C786C; margin-bottom: 25px; }
+.btn-bienvenida {
+    display: inline-block;
+    background: linear-gradient(135deg, #E29578, #E29578);
+    color: #FFFFFF;
+    padding: 12px 25px; border-radius: 30px;
+    font-size: 0.85rem; font-weight: bold;
+    box-shadow: 0 4px 12px rgba(226, 149, 120, 0.3);
+}
+
+/* Contenido Principal */
+.main-content {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.header-aniversario { margin: 30px 0 20px; }
+.badge-gold {
+    background: #FFE8E0; border: 1px solid #E29578;
+    color: #E29578; padding: 5px 16px; border-radius: 20px;
+    font-size: 0.75rem; font-weight: bold;
+}
+.titulo-aniversario { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; color: #4A3E3D; margin-top: 10px; }
+.subtitulo-aniversario { font-size: 0.9rem; color: #8C786C; }
+
+/* Contador */
+.contador-section { margin: 30px 0; }
+.contador-card {
+    background: #FFFFFF; border: 1px solid #F3E1DB;
+    padding: 22px; border-radius: 24px;
+    box-shadow: 0 8px 20px rgba(74, 62, 61, 0.04);
+}
+.contador-titulo { font-size: 0.85rem; color: #8C786C; margin-bottom: 12px; }
+.contador-grid { display: flex; justify-content: space-around; }
+.time-box .num { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: bold; color: #E29578; display: block; }
+.time-box .label { font-size: 0.75rem; color: #8C786C; text-transform: uppercase; font-weight: 600; }
+
+/* Carta en Sobre Animado */
+.envelope-section { margin: 40px 0; }
+.envelope-wrapper { cursor: pointer; }
+.envelope {
+    position: relative; width: 280px; height: 180px;
+    background: #E29578; margin: 0 auto; border-radius: 0 0 12px 12px;
+    box-shadow: 0 10px 25px rgba(226, 149, 120, 0.25);
+}
+.envelope .flap {
+    position: absolute; top: 0; left: 0; border-left: 140px solid transparent;
+    border-right: 140px solid transparent; border-top: 100px solid #FFA88B;
+    transform-origin: top; transition: transform 0.5s ease; z-index: 3;
+}
+.envelope.open .flap { transform: rotateX(180deg); }
+.envelope .pocket {
+    position: absolute; bottom: 0; left: 0; border-left: 140px solid #D88365;
+    border-right: 140px solid #D88365; border-bottom: 90px solid #C97558;
+    border-radius: 0 0 12px 12px; z-index: 3;
+}
+.envelope .letter {
+    position: absolute; bottom: 10px; left: 15px; width: 250px; height: 150px;
+    background: #FFFFFF; color: #4A3E3D; border-radius: 8px; padding: 15px;
+    transition: transform 0.5s ease; z-index: 2; text-align: left;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+}
+.envelope.open .letter { transform: translateY(-80px); z-index: 4; height: 200px; }
+.words h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: #E29578; }
+.words p { font-size: 0.8rem; line-height: 1.4; margin-top: 5px; color: #4A3E3D; }
+.signature { text-align: right; font-weight: bold; color: #E29578; margin-top: 8px; }
+.envelope-hint { font-size: 0.85rem; color: #E29578; margin-top: 20px; font-weight: 600; }
+
+/* Galería 3D Volteable */
+.galeria-section { margin: 50px 0; }
+.titulo-seccion { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; color: #4A3E3D; }
+.hint-seccion { font-size: 0.8rem; color: #8C786C; margin-bottom: 25px; }
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+.flip-card {
+    background-color: transparent;
+    width: 220px; height: 290px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.flip-inner {
+    position: relative; width: 100%; height: 100%;
+    text-align: center;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-inner { transform: rotateY(180deg); }
+
+.flip-front, .flip-back {
+    position: absolute; width: 100%; height: 100%;
+    -webkit-backface-visibility: hidden; backface-visibility: hidden;
+    border-radius: 18px; padding: 12px; background: #FFFFFF;
+    box-shadow: 0 8px 20px rgba(74, 62, 61, 0.05);
+    border: 1px solid #F3E1DB;
+}
+
+.flip-front img { width: 100%; height: 210px; object-fit: cover; border-radius: 12px; }
+.caption { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; margin-top: 10px; display: block; color: #4A3E3D; }
+
+.flip-back {
+    background: linear-gradient(135deg, #FFFFFF, #FFF0ED);
+    border: 1px solid #E29578;
+    transform: rotateY(180deg);
+    display: flex; justify-content: center; align-items: center;
+    padding: 20px;
+}
+
+.flip-back p { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; line-height: 1.4; color: #E29578; font-style: italic; }
+
+/* Regalo */
+.regalo-section { margin: 40px 0; }
+.regalo-card {
+    background: linear-gradient(135deg, #FFF0ED, #FFE2DA);
+    border: 2px dashed #E29578;
+    padding: 25px; border-radius: 20px; cursor: pointer;
+}
+.regalo-icon { font-size: 3.5rem; animation: bounce 2s infinite; }
+#regaloTexto { margin-top: 10px; font-weight: bold; color: #4A3E3D; }
+
+/* Modal */
+.modal-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(74, 62, 61, 0.4); backdrop-filter: blur(5px); z-index: 1000;
+    justify-content: center; align-items: center;
+}
+.modal-box {
+    background: #FFFFFF; border-top: 4px solid #E29578; padding: 30px 20px;
+    border-radius: 20px; max-width: 350px; width: 85%; text-align: center; position: relative;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+#alertTxt { font-size: 1.05rem; line-height: 1.6; color: #4A3E3D; }
+.modal-close { position: absolute; top: 10px; right: 15px; font-size: 26px; color: #8C786C; cursor: pointer; }
+
+@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+
+/* 1. CORAZONES FLOTANTES MÁS ROJOS Y VIVOS */
+.floating-heart {
+    position: absolute;
+    bottom: -20px;
+    color: #ff1e42 !important; /* Rojo cereza radiante */
+    font-size: 1.4rem;
+    filter: drop-shadow(0 0 6px rgba(255, 30, 66, 0.4)); /* Resplandor rojo suave */
+    animation: floatUp 6s linear infinite;
+}
+
+/* 2. ARREGLO DEL "11" EN MESES (NÚMEROS CLAROS Y MODERNOS) */
+.time-box .num {
+    font-family: 'Montserrat', sans-serif !important; /* Fuente limpia para números */
+    font-variant-numeric: lining-nums !important;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #e29578;
+    display: block;
+}
+
+/* 3. ARREGLO DEL SOBRE Y CARTA (PARA QUE NO SALGA EL TEXTO) */
+.envelope-section {
+    margin: 40px 0;
+}
+
+.envelope-wrapper {
+    cursor: pointer;
+    display: inline-block;
+}
+
+.envelope {
+    position: relative;
+    width: 300px;
+    height: 190px;
+    background: #e29578;
+    margin: 0 auto;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 10px 25px rgba(226, 149, 120, 0.3);
+    overflow: hidden; /* Oculta todo lo que sobresalga cuando está cerrado */
+    transition: overflow 0.3s ease;
+}
+
+/* Permite que la carta suba libremente al abrirse */
+.envelope.open {
+    overflow: visible;
+}
+
+.envelope .flap {
+    position: absolute;
+    top: 0; left: 0;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-top: 105px solid #ffa88b;
+    transform-origin: top;
+    transition: transform 0.5s ease;
+    z-index: 3;
+}
+
+.envelope.open .flap {
+    transform: rotateX(180deg);
+    z-index: 1;
+}
+
+.envelope .pocket {
+    position: absolute;
+    bottom: 0; left: 0;
+    border-left: 150px solid #d88365;
+    border-right: 150px solid #d88365;
+    border-bottom: 95px solid #c97558;
+    border-radius: 0 0 12px 12px;
+    z-index: 3;
+}
+
+.envelope .letter {
+    position: absolute;
+    bottom: 5px;
+    left: 15px;
+    width: 270px;
+    height: 160px;
+    background: #ffffff;
+    color: #4a3e3d;
+    border-radius: 10px;
+    padding: 15px;
+    transition: transform 0.5s ease;
+    z-index: 2;
+    text-align: left;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Despliegue de la carta al dar clic */
+.envelope.open .letter {
+    transform: translateY(-120px);
+    z-index: 4;
+    height: auto;
+    min-height: 220px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.words h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    color: #e29578;
+    margin-bottom: 6px;
+}
+
+.words p {
+    font-size: 0.82rem;
+    line-height: 1.45;
+    color: #4a3e3d;
+    margin: 0;
+}
+
+.signature {
+    text-align: right;
+    font-weight: bold;
+    color: #e29578;
+    margin-top: 10px !important;
+    font-size: 0.85rem !important;
+}
+
+.envelope-hint {
+    font-size: 0.85rem;
+    color: #e29578;
+    margin-top: 20px;
+    font-weight: 600;
+}

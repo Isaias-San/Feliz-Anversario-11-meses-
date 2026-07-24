@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestros 11 Meses ✨</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,400&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+    <!-- Corazones Flotantes Animados de Fondo -->
+    <div class="hearts-background" id="heartsContainer"></div>
+
+    <!-- Reproductor Flotante de Música -->
+    <div class="music-player">
+        <button class="play-btn" onclick="toggleAudio()" aria-label="Reproducir o pausar música">
+            <span id="playIcon">▶</span>
+        </button>
+        <div class="song-info">
+            <span class="song-title">Nuestra Canción</span>
+            <span class="song-sub">11 Meses de Amor 💖</span>
+        </div>
+        <audio id="bgMusic" loop>
+            <source src="cancion/cancion.mpeg" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <!-- 1. PANTALLA DE INICIO ROMÁNTICA -->
+    <div id="pantallaIntro" class="intro-screen">
+        <div class="card-intro" onclick="iniciarExperiencia()">
+            <h2>Nuestra Historia de Amor ❤️</h2>
+            <p class="intro-sub">11 Meses coleccionando momentos inolvidables a tu lado.</p>
+            <div class="btn-bienvenida">✨ Toca aquí para una sorpresa ✨</div>
+        </div>
+    </div>
+
+    <!-- 2. CONTENIDO PRINCIPAL -->
+    <main id="appContent" class="main-content" style="display: none;">
+
+        <!-- Encabezado -->
+        <header class="header-aniversario">
+            <span class="badge-gold">11 MESES JUNTOS</span>
+            <h1 class="titulo-aniversario">¡Feliz Aniversario, Mi Vida!</h1>
+            <p class="subtitulo-aniversario">Gracias por hacer cada día más bonito 🥰</p>
+        </header>
+
+        <!-- Contador de 11 Meses -->
+        <section class="contador-section">
+            <div class="contador-card">
+                <p class="contador-titulo">Escribiendo nuestra historia desde hace:</p>
+                <div class="contador-grid">
+                    <div class="time-box">
+                        <span class="num">11</span>
+                        <span class="label">Meses</span>
+                    </div>
+                    <div class="time-box">
+                        <span class="num">335</span>
+                        <span class="label">Días</span>
+                    </div>
+                    <div class="time-box">
+                        <span class="num">8,040</span>
+                        <span class="label">Horas</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Carta Interactiva en Sobre -->
+        <section class="envelope-section">
+            <div class="envelope-wrapper" onclick="abrirCarta()">
+                <div class="envelope" id="envelopeObj">
+                    <div class="front flap"></div>
+                    <div class="front pocket"></div>
+                    <div class="letter">
+                        <div class="words">
+                            <h3>Para mi amor... 💌</h3>
+                            <p>¡Feliz 11 meses, mi vida! Gracias por cada risa, cada abrazo y por hacer que este tiempo a tu lado sea el más hermoso de mi vida. Eres mi lugar seguro y mi persona favorita. Te amo con todo mi corazón. ❤️</p>
+                            <p class="signature">Por siempre tuyo ✨</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="galeria-section">
+            <h2 class="titulo-seccion">Nuestros Recuerdos 📸</h2>
+            
+            <div class="cards-grid">
+                <!-- Foto 1 -->
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-inner">
+                        <div class="flip-front">
+                            <img src="fotos/foto1.jpg" alt="Recuerdo 1">
+                            <span class="caption">Mi foto favorita😍</span>
+                        </div>
+                        <div class="flip-back">
+                            <p>"Me gusta mucho verte y recordar siempre que eres mi persona favorita" 🥰❤️</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Foto 2 -->
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-inner">
+                        <div class="flip-front">
+                            <img src="fotos/foto2.jpg" alt="Recuerdo 2">
+                            <span class="caption">Tu Sonrisa 😄</span>
+                        </div>
+                        <div class="flip-back">
+                            <p>"Amo cómo me haces sonreír incluso en los días más difíciles." ✨💖</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Foto 3 -->
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-inner">
+                        <div class="flip-front">
+                            <img src="fotos/foto3.jpg" alt="Recuerdo 3">
+                            <span class="caption">Citas Especiales 🤭</span>
+                        </div>
+                        <div class="flip-back">
+                            <p>"Cualquier lugar se vuelve el más bonito si estoy contigo." 🍕😍</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Foto 4 -->
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-inner">
+                        <div class="flip-front">
+                            <img src="fotos/foto4.jpg" alt="Recuerdo 4">
+                            <span class="caption">Tus Abrazos 🧸</span>
+                        </div>
+                        <div class="flip-back">
+                            <p>"Tus abrazos son mi refugio favorito en todo el mundo." 🧸🤗</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Foto 5 -->
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-inner">
+                        <div class="flip-front">
+                            <img src="fotos/foto8.jpg" alt="Recuerdo 5">
+                            <span class="caption">Complicidad 🤫</span>
+                        </div>
+                        <div class="flip-back">
+                            <p>"Me encanta cómo nos entendemos con solo mirarnos." 🤫💕</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Foto 6 -->
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-inner">
+                        <div class="flip-front">
+                            <img src="fotos/foto6.jpg" alt="Recuerdo 6">
+                            <span class="caption">Tu novio❤️</span>
+                        </div>
+                        <div class="flip-back">
+                            <p>"Prometo hacerte feliz todos los días."✨</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Foto 7 -->
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-inner">
+                        <div class="flip-front">
+                            <img src="fotos/foto7.jpg" alt="Recuerdo 7">
+                            <span class="caption">Mi Princesa 👑</span>
+                        </div>
+                        <div class="flip-back">
+                            <p>"Eres la persona más hermosa de todo este planeta." 👑😍</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Foto 8 -->
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-inner">
+                        <div class="flip-front">
+                            <img src="fotos/foto5.jpg" alt="Recuerdo 8">
+                            <span class="caption">Por Siempre 🥂</span>
+                        </div>
+                        <div class="flip-back">
+                            <p>"11 meses son solo el comienzo de toda nuestra vida juntos." 🥂♾️❤️</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mensajito Atrevido / Coquetón -->
+        <section class="atrevido-section">
+            <div class="atrevido-card">
+                <h3>Un pequeño secreto... 🫣🔥</h3>
+                <p>Me encantas demasiado, y no solo por lo bonita y dulce que eres... sino por cómo me vuelves loco con solo una mirada. Prepárate, porque hoy te voy a llenar de besos y no te vas a poder escapar. 😈❤️‍🔥</p>
+            </div>
+        </section>
+
+        <!-- Regalo Sorpresa Final -->
+        <section class="regalo-section">
+            <div class="regalo-card" onclick="desempaquetar()">
+                <div class="regalo-icon">🎁</div>
+                <p id="regaloTexto">¡Toca aquí para abrir tu regalo de 11 Meses!</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal Emergente -->
+    <div id="modalAlert" class="modal-overlay" onclick="cerrarModal()">
+        <div class="modal-box" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="cerrarModal()">&times;</span>
+            <p id="alertTxt"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
